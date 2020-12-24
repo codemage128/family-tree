@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before, .tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px dashed #5a0e00;
+    width: 50%;
+    height: 20px;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px dashed #5a0e00;
+}
+
+/*We need to remove left-right connectors from elements without
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+    display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child {
+    padding-top: 0;
+}
+
+/*Remove left connector from first child and
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after {
+    border: 0 none;
+}
+
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before {
+    border-right: 2px dashed #5a0e00;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+
+.tree li > div:nth-child(2):before {
+    border-bottom: 2px dashed #5a0e00;
+    position: absolute;
+    content: "";
+    top: 55%;
+    right: 100%;
+    width: 40px;
+    height: 0;
+}
+
+.tree li > div:nth-child(2):after {
+    border-bottom: 2px dashed #5a0e00;
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 100%;
+    width: 40px;
+    height: 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px dashed #5a0e00;
+    width: 0;
+    height: 20px;
+}
+
+.tree li > a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    font-size: 11px;
+    display: inline-block;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+
+.tree li .card {
+    /*background: linear-gradient(45deg, #2ec5ff, #ffffff00);*/
+    border: none;
+    box-shadow: 3px 7px 17px 7px #d2d2d2;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    margin: 0px 20px 0px 20px;
+    display: inline-block;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.men {
+    background: linear-gradient(45deg, #000000, #ffffff00);
+}
+
+.women {
+    background: linear-gradient(45deg, #ff0fa3, #ffffff00);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li a:hover, .tree li a:hover + ul li a {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
+/*Connector styles on hover*/
+.tree li a:hover + ul li::after,
+.tree li a:hover + ul li::before,
+.tree li a:hover + ul::before,
+.tree li a:hover + ul ul::before {
+    border-color: #2875fc;
+}
+
+.card {
+    width: 250px
+}
+
+img {
+    width: 150px;
+}
+
+.tree ul {
+    display: flex;
+    justify-content: center;
+}
+
+.parent {
+    margin-left: 250px !important;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+.me {
+    background: linear-gradient(45deg, #8f00d8, #ffffff00);
+}
+
+.me:before {
+    content: "ME";
+    background: #ff0808;
+    color: white;
+    padding: 10px;
+    top: 0%;
+    position: absolute;
+    right: 83%;
+    border-radius: 50px;
+}
