@@ -19,9 +19,6 @@ $me = 1;
 //if (count($_SESSION) > 0) {
 //    $me = $_SESSION["_id"];
 //}
-$servername = "database-1-instance-1.cwsml3emw73t.us-east-2.rds.amazonaws.com";
-$db_username = 'admin';
-$db_password = 'bit7wise';
 
 /*local database for test */
 //$servername = "localhost";

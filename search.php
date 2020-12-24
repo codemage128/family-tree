@@ -5,9 +5,7 @@ $middlename = $_POST['middleName'];
 $lastname = $_POST['lastName'];
 //$birthday = $_POST['birthday'];
 
-$servername = "database-1-instance-1.cwsml3emw73t.us-east-2.rds.amazonaws.com";
-$db_username = 'admin';
-$db_password = 'bit7wise';
+
 //$servername = "localhost";
 //$db_username = 'root';
 //$db_password = '';
